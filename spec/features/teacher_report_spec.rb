@@ -1,20 +1,19 @@
 require 'rails_helper'
 
-feature "Viewing student progress" do
-  let(:enrollment) {
+feature "Teacher report" do
+  let!(:enrollment) {
     Enrollment.create!(
       student: Student.create!(name: "Alice"),
       lesson: Lesson.create!(name: "Programming"),
       class_group: ClassGroup.create!(
         teacher: Teacher.create!(name: "Mr. Bob"),
-      ),
-      parts_completed: 3,
+      )
     )
   }
 
-  it "displays successfully" do
-    visit "/students/#{enrollment.student.id}.json"
+  it "allows teachers to view student progress" do
+    visit "/teachers/#{enrollment.class_group.teacher.id}/reports/student_progress"
 
-    expect(page).to have_content %q{"parts_completed":3}
+    expect(page).to have_content(enrollment.student.name)
   end
 end

@@ -1,0 +1,21 @@
+<h1>Student progress report</h1>
+
+<h2>Teacher: <%= @teacher.name %></h2>
+
+<ul>
+  <% @teacher.class_groups.each do |class_group| %>
+    <li>
+      <h3>Class <%= class_group.id %></h3>
+
+      <ul>
+        <% class_group.enrollments.each do |enrollment| %>
+          <li>
+            <%= enrollment.student.name %> —
+            <%= enrollment.lesson.name %>: <%= enrollment.parts_completed %> of
+            <%= enrollment.lesson.parts %>
+          </li>
+        <% end %>
+      </ul>
+    </li>
+  <% end %>
+</ul>

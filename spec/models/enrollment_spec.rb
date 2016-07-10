@@ -2,10 +2,13 @@ require 'rails_helper'
 
 describe Enrollment do
 	let(:enrollment) {
-		Enrollment.create!(
-			student: Student.create!(name: "Alice"),
-			lesson: Lesson.create!(name: "Programming"),
-		)
+    Enrollment.create!(
+      student: Student.create!(name: "Alice"),
+      lesson: Lesson.create!(name: "Programming"),
+      class_group: ClassGroup.create!(
+         teacher: Teacher.create!(name: "Mrs. Smith")
+      )
+    )
 	}
 
 	it "validates the existence of the lesson part" do
