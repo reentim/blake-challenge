@@ -5,6 +5,9 @@ describe "Enrollment management", type: :request do
     Enrollment.create!(
       student: Student.create!(name: "Alice"),
       lesson: Lesson.create!(name: "Programming"),
+      class_group: ClassGroup.create!(
+         teacher: Teacher.create!(name: "Mrs. Smith")
+      )
     )
   }
 

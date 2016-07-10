@@ -5,6 +5,9 @@ feature "Viewing student progress" do
     Enrollment.create!(
       student: Student.create!(name: "Alice"),
       lesson: Lesson.create!(name: "Programming"),
+      class_group: ClassGroup.create!(
+        teacher: Teacher.create!(name: "Mr. Bob"),
+      ),
       parts_completed: 3,
     )
   }

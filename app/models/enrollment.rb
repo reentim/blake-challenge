@@ -1,6 +1,7 @@
 class Enrollment < ApplicationRecord
   belongs_to :student
   belongs_to :lesson
+  belongs_to :class_group
 
   validate :lesson_part_must_exist
 
