@@ -1,15 +1,7 @@
 require 'rails_helper'
 
 describe "Enrollment management", type: :request do
-  let!(:enrollment) {
-    Enrollment.create!(
-      student: Student.create!(name: "Alice"),
-      lesson: Lesson.create!(name: "Programming"),
-      class_group: ClassGroup.create!(
-         teacher: Teacher.create!(name: "Mrs. Smith")
-      )
-    )
-  }
+  let!(:enrollment) {create(:enrollment) }
 
   it "allows students to progress through lessons" do
     put "/enrollments/#{enrollment.id}", params: {
