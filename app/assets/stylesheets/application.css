@@ -30,3 +30,15 @@ ul {
   list-style: none;
   padding-left: 0;
 }
+
+table {
+  border-collapse: collapse;
+}
+
+th {
+  width: 1%;
+}
+
+tr {
+  border-bottom: 1px solid silver;
+}

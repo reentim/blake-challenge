@@ -7,15 +7,24 @@
     <li>
       <h3>Class <%= class_group.id %></h3>
 
-      <ul>
-        <% class_group.enrollments.each do |enrollment| %>
-          <li>
-            <%= enrollment.student.name %> —
-            <%= enrollment.lesson.name %>: <%= enrollment.parts_completed %> of
-            <%= enrollment.lesson.parts %>
-          </li>
+      <table>
+        <tr>
+          <th>Student</th>
+          <th>Current lesson</th>
+          <th>Parts completed</th>
+        </tr>
+        <% class_group.students.each do |student| %>
+          <% last_enrollment = student.enrollments.last %>
+          <tr>
+            <td><%= student.name %></td>
+            <td><%= last_enrollment.lesson.id %></td>
+            <td>
+              <%= last_enrollment.parts_completed %> of
+              <%= last_enrollment.lesson.parts %>
+            </td>
+          </tr>
         <% end %>
-      </ul>
+      </table>
     </li>
   <% end %>
 </ul>
