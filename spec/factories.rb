@@ -6,6 +6,16 @@ FactoryGirl.define do
 
     trait :lesson_completed do
       parts_completed 3
+
+      # validations require lessons to be completed in sequence; disable them
+      to_create { |instance| instance.save(validate: false) }
+    end
+
+    trait :lesson_partially_completed do
+      parts_completed 2
+
+      # validations require lessons to be completed in sequence; disable them
+      to_create { |instance| instance.save(validate: false) }
     end
   end
 
