@@ -1,15 +1,7 @@
 require 'rails_helper'
 
 feature "Teacher report" do
-  let!(:enrollment) {
-    Enrollment.create!(
-      student: Student.create!(name: "Alice"),
-      lesson: Lesson.create!(name: "Programming"),
-      class_group: ClassGroup.create!(
-        teacher: Teacher.create!(name: "Mr. Bob"),
-      )
-    )
-  }
+  let!(:enrollment) { create(:enrollment) }
 
   it "allows teachers to view student progress" do
     visit "/teachers/#{enrollment.class_group.teacher.id}/reports/student_progress"
