@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  resources :enrollments, only: [:update]
+  resources :enrollments, only: [:new, :show, :edit, :create, :update]
   resources :students, only: [:show]
 
   resources :teachers, only: [] do

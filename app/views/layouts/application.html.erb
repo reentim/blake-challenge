@@ -9,6 +9,12 @@
   </head>
 
   <body>
+    <% if notice.present? %>
+      <p class="notice">
+        <%= notice %>
+      </p>
+    <% end %>
+
     <%= yield %>
   </body>
 </html>

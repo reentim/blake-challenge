@@ -1,0 +1,35 @@
+<h1>Enrollment</h1>
+
+<%= link_to 'Edit', edit_enrollment_path(@enrollment) %>
+
+<p>
+  <div>
+    <strong>Student</strong>
+  </div>
+
+  <%= @enrollment.student.name %>
+</p>
+
+<p>
+  <div>
+    <strong>Lesson</strong>
+  </div>
+
+  <%= @enrollment.lesson.reference %>
+</p>
+
+<p>
+  <div>
+    <strong>Class group</strong>
+  </div>
+
+  <%= @enrollment.class_group.id %>
+</p>
+
+<p>
+  <div>
+    <strong>Parts completed</strong>
+  </div>
+
+  <%= @enrollment.parts_completed %>
+</p>

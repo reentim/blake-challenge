@@ -1,0 +1,39 @@
+<%= form_for(enrollment) do |f| %>
+  <% if enrollment.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(enrollment.errors.count, "error") %> prohibited this enrollment from being saved:</h2>
+
+      <ul>
+      <% enrollment.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div>
+    <%= f.label :student %>
+    <%= f.collection_select(:student_id, Student.all, :id, :name) %>
+  </div>
+
+  <div>
+    <%= f.label :lesson %>
+		<%= f.collection_select(:lesson_id, Lesson.all, :id, :reference) %>
+  </div>
+
+  <div>
+    <%= f.label :class_group %>
+		<%= f.collection_select(:class_group_id, ClassGroup.all, :id, :id) %>
+  </div>
+
+  <% if @enrollment.persisted? %>
+    <div>
+      <%= f.label :parts_completed %>
+      <%= f.select(:parts_completed, options_for_select((0..@enrollment.lesson.parts).to_a)) %>
+    </div>
+  <% end %>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

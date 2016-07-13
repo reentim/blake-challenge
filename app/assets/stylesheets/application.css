@@ -42,3 +42,17 @@ th {
 tr {
   border-bottom: 1px solid silver;
 }
+
+div {
+  padding: 0.5em 0;
+}
+
+label {
+  display: block;
+  padding-bottom: 5px;
+}
+
+.notice {
+  background-color: rgb(255, 243, 199);
+  padding: 1em;
+}
